@@ -26,6 +26,4 @@ function Amazon-Web-Login {
     & "C:\Program Files\Mozilla Firefox\firefox.exe" "ext+container:name=$ProfileName&url=$aws_vault_login_url"
 }
 
-New-Alias -Name awl -Value Amazon-Web-Login -Scope Global
-
 Export-ModuleMember -Function Amazon-Web-Login
