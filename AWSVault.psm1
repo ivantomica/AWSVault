@@ -35,7 +35,7 @@ function Open-AWSSession {
         [string]$FirefoxContainerName = $ProfileName
     )
 
-    Create-AWSSession -ProfileName $ProfileName
+    New-AWSSession -ProfileName $ProfileName
     
     if ($FirefoxContainer -eq $true) {
         $EscapedAWSLoginURL = $AWSLoginURL.Replace("&", "%26")
