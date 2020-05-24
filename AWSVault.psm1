@@ -1,3 +1,11 @@
+function New-AWSSession {
+    param (
+        [parameter(Mandatory=$true)][string]$ProfileName
+    )
+
+    $script:AWSLoginURL = (aws-vault login --stdout $ProfileName)
+}
+
 <#
     .Synopsis
     Log-in into AWS Account with aws-vault utility and opet session in container tab
@@ -19,15 +27,6 @@
     # Login to the AWS profile "example"
     Open-AWSSession example
 #>
-
-function New-AWSSession {
-    param (
-        [parameter(Mandatory=$true)][string]$ProfileName
-    )
-    
-    $script:AWSLoginURL = (aws-vault login --stdout $ProfileName)
-}
-
 function Open-AWSSession {
     param(
         [parameter(Mandatory=$true)][string]$ProfileName,
@@ -36,7 +35,7 @@ function Open-AWSSession {
     )
 
     New-AWSSession -ProfileName $ProfileName
-    
+
     if ($FirefoxContainer -eq $true) {
         $EscapedAWSLoginURL = $AWSLoginURL.Replace("&", "%26")
         & "C:\Program Files\Mozilla Firefox\firefox.exe" "ext+container:name=$FirefoxContainerName&url=$EscapedAWSLoginURL"
