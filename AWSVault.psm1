@@ -17,7 +17,7 @@ function New-AWSSession {
     Name of the aws-vault profile
 
     .Parameter FirefoxContainer
-    Switch parameter to use Firefox Container feature. 
+    Switch parameter to use Firefox Container feature.
     Usage requires following extension: https://addons.mozilla.org/en-US/firefox/addon/open-url-in-container/
 
     .Parameter FirefoxContainerName
